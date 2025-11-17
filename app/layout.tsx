@@ -6,7 +6,10 @@ import { AnimatedTitle } from "@/components/animated-title";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
-import { ButtonGroup } from "@/components/ui/button-group";
+import {
+  ButtonGroup,
+  ButtonGroupSeparator,
+} from "@/components/ui/button-group";
 
 import "./globals.css";
 
@@ -41,7 +44,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between pl-4 pr-2 h-12 border-b border-border/50 backdrop-blur-md bg-background/80">
+          <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between pl-4 pr-2 h-12 border-b border-border/50 backdrop-blur-md bg-primary-foreground">
             <Link
               href="/"
               className="text-lg font-semibold hover:text-primary transition-colors cursor-pointer"
@@ -51,7 +54,7 @@ export default function RootLayout({
             <ButtonGroup>
               <ButtonGroup aria-label="Social media links">
                 <Button
-                  variant="outline"
+                  variant="secondary"
                   size="icon-sm"
                   asChild
                   aria-label="GitHub"
@@ -64,8 +67,9 @@ export default function RootLayout({
                     <Github />
                   </Link>
                 </Button>
+                <ButtonGroupSeparator />
                 <Button
-                  variant="outline"
+                  variant="secondary"
                   size="icon-sm"
                   asChild
                   aria-label="LinkedIn"
@@ -78,8 +82,9 @@ export default function RootLayout({
                     <Linkedin />
                   </Link>
                 </Button>
+                <ButtonGroupSeparator />
                 <Button
-                  variant="outline"
+                  variant="secondary"
                   size="icon-sm"
                   asChild
                   aria-label="Twitter"
@@ -94,7 +99,7 @@ export default function RootLayout({
                 </Button>
               </ButtonGroup>
               <ButtonGroup>
-                <ThemeToggle variant="outline" size="icon-sm" />
+                <ThemeToggle variant="secondary" size="icon-sm" />
               </ButtonGroup>
             </ButtonGroup>
           </nav>
