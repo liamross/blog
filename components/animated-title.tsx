@@ -2,8 +2,12 @@
 
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
-export function AnimatedTitle() {
+export function AnimatedTitle({
+  className,
+  ...props
+}: Omit<React.ComponentProps<"span">, "children">) {
   const [isHovered, setIsHovered] = useState(false);
   const devRef = useRef<HTMLSpanElement>(null);
   const [devWidth, setDevWidth] = useState(0);
@@ -16,11 +20,12 @@ export function AnimatedTitle() {
 
   return (
     // biome-ignore lint/a11y/noStaticElementInteractions: Decorative hover effect, not functionally interactive
-    <div
-      className="inline-block relative"
+    <span
+      className={cn("inline-block relative", className)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       role="presentation"
+      {...props}
     >
       {/* "dev" that slides out to the left */}
       <motion.span
@@ -71,6 +76,6 @@ export function AnimatedTitle() {
           .dev
         </motion.span>
       </motion.span>
-    </div>
+    </span>
   );
 }
