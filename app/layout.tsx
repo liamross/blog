@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import { Github, Linkedin, Twitter } from "lucide-react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -107,6 +108,7 @@ export default function RootLayout({
             <main className="mx-auto w-full max-w-[80ch]">{children}</main>
           </div>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
