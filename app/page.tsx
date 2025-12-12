@@ -44,7 +44,11 @@ export default async function Home() {
                   </h2>
                   {post.date && (
                     <time className="text-sm text-muted-foreground">
-                      {new Date(post.date).toLocaleDateString("en-US", {
+                      {new Date(
+                        // Hack to make it display correctly in the browser.
+                        // Removes UTC so it displays as 0 in local timezone.
+                        `${post.date}T00:00:00`,
+                      ).toLocaleDateString("en-US", {
                         year: "numeric",
                         month: "long",
                         day: "numeric",
