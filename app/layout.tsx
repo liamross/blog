@@ -1,9 +1,9 @@
 import { Analytics } from "@vercel/analytics/next";
-import { Github, Linkedin, Twitter } from "lucide-react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import { AnimatedTitle } from "@/components/animated-title";
+import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/social-icons";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
@@ -25,8 +25,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: "A simple blog built with Next.js and MDX",
+  title: "Developmental",
+  description: "A blog about development, startups, and life.",
 };
 
 export default function RootLayout({
@@ -65,7 +65,7 @@ export default function RootLayout({
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Github />
+                    <GitHubIcon />
                   </Link>
                 </Button>
                 <ButtonGroupSeparator />
@@ -80,7 +80,7 @@ export default function RootLayout({
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Linkedin />
+                    <LinkedInIcon />
                   </Link>
                 </Button>
                 <ButtonGroupSeparator />
@@ -88,14 +88,14 @@ export default function RootLayout({
                   variant="secondary"
                   size="icon-sm"
                   asChild
-                  aria-label="Twitter"
+                  aria-label="X"
                 >
                   <Link
                     href="https://x.com/liamcode"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Twitter />
+                    <XIcon />
                   </Link>
                 </Button>
               </ButtonGroup>
