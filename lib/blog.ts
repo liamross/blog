@@ -1,3 +1,4 @@
+import { readdirSync } from "node:fs";
 import { readdir } from "node:fs/promises";
 import { join } from "node:path";
 
@@ -17,6 +18,17 @@ export interface BlogPost {
 }
 
 const blogDirectory = join(process.cwd(), "app/blog");
+
+/**
+ * Get just the blog slugs (folder names) without importing MDX.
+ * This is safe to use in next.config.ts where MDX imports don't work.
+ */
+export function getAllPostSlugs(): string[] {
+  const entries = readdirSync(blogDirectory, { withFileTypes: true });
+  return entries
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name);
+}
 
 async function getMetadataFromPost(slug: string): Promise<BlogPost | null> {
   try {
