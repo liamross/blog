@@ -18,7 +18,7 @@ export default function BlogLayout({
           <Link href="/">← Back to posts</Link>
         </Button>
       </div>
-      <div className="prose prose-neutral dark:prose-invert max-w-none prose-pre:bg-transparent prose-pre:p-0 pt-12">
+      <div className="prose prose-p:text-lg prose-neutral dark:prose-invert max-w-none prose-pre:bg-transparent prose-pre:p-0 pt-12">
         {children}
         <div className="h-12 w-full" />
       </div>
