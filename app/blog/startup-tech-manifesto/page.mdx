@@ -1,0 +1,76 @@
+export const metadata = {
+  title: "The Startup Tech Manifesto",
+  date: "2026-01-11",
+  description: "An opinionated guide for startup tech decisions.",
+  tags: ["startups", "writing"],
+}
+
+# The Startup Tech Manifesto
+
+Wherein I outline the choices I believe will lead to a most-correct tech foundation for any early-stage startup. In rough order of importance.
+
+## 1. TypeScript, React, PostgreSQL
+
+If the app you are building is web-based, you should use TypeScript, React, and PostgreSQL.
+
+### 1.1. TypeScript
+
+Unless you have a reason to use another language, you should be using TypeScript. It is the [best language to write AI code](https://ai-sdk.dev/docs/introduction) in, you can share your types across frontend and backend, and refactors and code writing with AI is effortless with LSP insights into type errors. The expressive type system makes for an amazingly rich ecosystem. It is fast enough for almost anything you could be using it for. It (+ JavaScript) is the [most used language](https://survey.stackoverflow.co/2025/technology).
+
+So why not JavaScript? TypeScript still lags behind JavaScript for the same reasons Express is still the most used web framework: they used to be the standard. You should still use something better if you can. TypeScript is better than JavaScript in every way that actually matters. [AI is better at typed languages](https://github.blog/ai-and-ml/llms/why-ai-is-pushing-developers-toward-typed-languages/). **Never start a new project in JavaScript**.
+
+### 1.2. React
+
+React is the industry standard. If you don't like it, you should do some self-reflection on your reasons. Being contrarian when it comes to technology is only cool if it is your differentiator. If the only outcome is stubborn resistance to the **most used thing**, I would try to learn to love it.
+
+### 1.3. PostgreSQL
+
+[Just use Postgres](https://mccue.dev/pages/8-16-24-just-use-postgres). [Just use Postgres](https://www.amazingcto.com/postgres-for-everything/). Just use Postgres.
+
+PlanetScale was the last reason to use MySQL and they support Postgres now. Just use Postgres.
+
+## 2. Monorepo
+
+Let's assume you listened to me and wrote everything in TypeScript. Nice work. Now stick it all in a monorepo. Use [Turborepo](https://turborepo.com/docs). Use [Biome](https://biomejs.dev) and rip out all the ESLint and Prettier stuff. Use [TypeScript Go](https://github.com/microsoft/typescript-go).
+
+Why? OK.
+
+### 2.1. Empowerment
+
+In a startup all developers should be multi-discipline. With AI, doubly so. Stop thinking about frontend and backend and infra separately. If everyone has access, you save a cycle every time the frontend and backend need to communicate. I remember an old job where I had to mock every backend endpoint while I waited for the team to build them (which they eventually did, but in a completely different way). **Build both at the same time**. Mock it if you need, but mock it in the actual backend. Then when someone implements it differently the code will complain until they fix how it's received on the frontend.
+
+### 2.2. Sharing
+
+Put it in a monorepo so you can re-use everything. Have two front ends? Stop re-writing everything from scratch: set up [Shadcn for Monorepo](https://ui.shadcn.com/docs/monorepo) to share components. Share common types. Share everything you can.
+
+### 2.3. AI
+
+My favourite Canadian company is [Turbopuffer](https://turbopuffer.com). Their bet is that RAG and semantic search are extremely important to [Context Engineering](https://x.com/karpathy/status/1937902205765607626?s=20). Cursor realizes how [important semantic search is](https://cursor.com/blog/dynamic-context-discovery). Let Cursor embed and manage context for your AI so it can find the right stuff for you. It can't do that unless it all lives in the same repository. Use a monorepo.
+
+## 3. Most of the time, it's Buy/Use, not Build
+
+Wanting to build everything from scratch is a junior mentality. Inexperienced developers want to learn and the best way to learn is by doing. Maturing is understanding that it shouldn't happen at the expense of the company.
+
+Unless something directly affects your core value proposition or you can do it much better in a reasonable amount of time, you probably should just use something that already exists. This is doubly effective if you followed the previous points and are using common software systems / languages with tons of open and closed-source libraries and tools.
+
+There are entire companies with entire teams making sure that the workflow tool you are paying 20 bucks a month for runs perfectly and improves in parallel with your system. The world's cheapest development team!
+
+## 4. Team-wide AI access
+
+AI one-shots most simple tasks now. This fundamentally changes how work should be structured at a company. Everyone on the dev team should have relatively unrestricted access to Cursor, Claude Code, Codex; it doesn't really matter which right now, but it should be something.
+
+If junior developers are taking a long time to do simple tasks, they aren't experienced enough with using AI. Hand-writing code is good for your brain and your soul and the perfect time for it is at home on non-work tasks, or during the rare time where AI doesn't quite get it.
+
+## 5. Minimalist interfaces
+
+When you use an external service, use it as simply and as generally as possible. One example: don't use the Supabase API to interact with the DB, use a direct Postgres connection. Your goal is to use services simply. Services will offer unique things to try to hook you in. I'm allergic to services like [Convex](https://www.convex.dev) where you have to build your entire system around them. Unless the whole point of the service is the unique offering, your surface area should be as limited, simple and general-purpose as possible.
+
+---
+
+Throughout many 0-1 projects and new companies, I have adopted many new technologies, patterns and ideologies. Everything moves in phases and technology falls out of favour for one reason or another.
+
+That being said, these 5 points remain salient. These are not subject to trends in the same way that many other opinions I have may be (API framework, code organization principles, etc).
+
+I am about to begin something new and this is the exact framework I will follow while building it.
+
+Happy building.
